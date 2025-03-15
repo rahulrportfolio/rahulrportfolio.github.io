@@ -4,7 +4,7 @@ import NavBar from "./NavBar";
 import Home from "./Home";
 import Project from "./Project";
 import Bio from "./Bio";
-import Experiance from "./Experiance";
+import Experience from "./Experience";
 import Footer from "./Footer";
 
 const App = () => {
@@ -16,7 +16,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="Project" element={<Project />} />
           <Route path="Bio" element={<Bio />} />
-          <Route path="Experiance" element={<Experiance />} />
+          <Route path="Experience" element={<Experience />} />
         </Routes>
       </div>
       <Footer />
