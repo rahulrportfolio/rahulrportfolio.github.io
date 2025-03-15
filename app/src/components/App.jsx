@@ -5,12 +5,13 @@ import Home from "./Home";
 import Project from "./Project";
 import Bio from "./Bio";
 import Experiance from "./Experiance";
+import Footer from "./Footer";
 
 const App = () => {
   return (
     <BrowserRouter>
       <NavBar />
-      <div className="mt-60">
+      <div className="mt-40">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="Project" element={<Project />} />
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="Experiance" element={<Experiance />} />
         </Routes>
       </div>
+      <Footer />
     </BrowserRouter>
   );
 };
