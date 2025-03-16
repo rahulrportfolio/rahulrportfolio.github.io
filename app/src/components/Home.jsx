@@ -10,11 +10,16 @@ import social from "../assets/skills/social.png";
 import kotlin from "../assets/skills/kotlin.png";
 import graphql from "../assets/skills/graphql.png";
 import figma from "../assets/skills/figma.png";
+import react from "../assets/skills/react.png";
+import javascript from "../assets/skills/javascript.png";
+import node from "../assets/skills/node.png";
+import htmlcss from "../assets/skills/htmlcss.png";
 import firebase from "../assets/skills/firebase.png";
 import mysql from "../assets/skills/mysql.png";
 import github from "../assets/contact/github.png";
 import gmail from "../assets/contact/gmail.png";
 import linkedin from "../assets/contact/linkedin.png";
+
 
 const Home = () => {
     return (
@@ -64,6 +69,10 @@ const Skills = () => {
                 <SkillItem image={firebase} text="Firebase" />
                 <SkillItem image={social} text="Git" />
                 <SkillItem image={figma} text="Figma" />
+                <SkillItem image={javascript} text="JavaScript" />
+                <SkillItem image={react} text="ReactJS" />
+                <SkillItem image={node} text="NodeJS" />
+                <SkillItem image={htmlcss} text="HTML/CSS" />
             </div>
         </div>
     );
