@@ -20,7 +20,6 @@ import github from "../assets/contact/github.png";
 import gmail from "../assets/contact/gmail.png";
 import linkedin from "../assets/contact/linkedin.png";
 
-
 const Home = () => {
     return (
         <div className="justify-center h-full w-full">
@@ -31,8 +30,6 @@ const Home = () => {
     );
 }
 export default Home;
-
-export {Skills}
 
 const Intro = () => {
     return (
@@ -103,3 +100,5 @@ const Contact = () => {
         </div>
     );
 }
+
+export { Contact };
