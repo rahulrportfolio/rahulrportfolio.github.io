@@ -17,7 +17,7 @@ export default Bio;
 const About = () => {
     return (
         <div>
-            <section class="text-1xl sm:text-1xl md:text-2xl h-full mx-auto p-16 bg-white mt-14">
+            <section class="text-1xl sm:text-1xl md:text-2xl h-full mx-auto p-12 bg-white mt-14">
                 <h1 class="text-4xl sm:text-4xl md:text-6xl font-bold text-gray-800">About Me</h1>
                 <p class="text-gray-600 mb-4">
                     Hey there! I'm a <span class="font-semibold">mobile developer</span> passionate about building apps that are
