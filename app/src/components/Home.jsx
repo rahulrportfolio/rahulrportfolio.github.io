@@ -52,7 +52,7 @@ const Intro = () => {
 const Skills = () => {
     return (
         <div className="bg-white w-full text-black text-center p-10">
-            <h1 className="text-6xl font-bold underline mb-10">Skills</h1>
+            <h1 className="text-6xl font-bold underline decoration-wavy decoration-red-500 mb-10">Skills</h1>
             <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 gap-8 place-items-center">
                 <SkillItem image={kotlin} text="Kotlin" />
                 <SkillItem image={swift} text="Swift" />
@@ -90,7 +90,7 @@ const Contact = () => {
     return (
         <div className="bg-white w-full text-black flex-col p-10">
             <hr className="border-gray-300 rounded-md border-t-4 p-6"></hr>
-            <h className="text-4xl font-extrabold underline">Contact Me</h>
+            <h className="text-4xl font-extrabold underline decoration-wavy decoration-pink-500">Contact Me</h>
             <p className="text-2xl">Feel free to reach out to me via email or social media!</p>
             <div className="flex gap-4 mt-4">
                 <a href="mailto:tejinquiries@gmail.com"><img src={gmail} alt="gmail" width="30" height="30" /></a>

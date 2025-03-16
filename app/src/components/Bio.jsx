@@ -18,7 +18,7 @@ const About = () => {
     return (
         <div>
             <section class="text-1xl sm:text-1xl md:text-2xl h-full mx-auto p-12 bg-white mt-14">
-                <h1 class="text-4xl sm:text-4xl md:text-6xl font-bold text-gray-800">About Me</h1>
+                <h1 class="text-4xl sm:text-4xl md:text-6xl font-bold text-gray-800 underline decoration-wavy decoration-cyan-500 pb-5">About Me</h1>
                 <p class="text-gray-600 mb-4">
                     Hey there! I'm a <span class="font-semibold">mobile developer</span> passionate about building apps that are
                     <span class="font-semibold">useful, efficient, and easy to use</span>. I work with
@@ -56,7 +56,7 @@ const Education = () => {
     return (
         <div className="bg-gray-100 py-10 px-6 flex items-center justify-center">
             <div className="flex flex-col items-center justify-center">
-                <h2 className="text-center text-4xl underline font-semibold text-gray-800 mb-12">Education</h2>
+                <h2 className="text-center text-4xl underline decoration-wavy decoration-indigo-500 font-semibold text-gray-800 mb-12">Education</h2>
                 <div className="sm:text-1xl md:2xl grid grid-cols-1 bg-white p-6 rounded-lg shadow-lg">
                     <h3 className="text-2xl font-extrabold text-gray-800">Bachelor of Science in Computer Science</h3>
                     <p className="text-gray-600 mt-2 md:text-2xl font-semibold">Manhattan University, 2021 - 2025</p>
