@@ -1,4 +1,5 @@
-import React from "react";
+import { useState, React } from "react";
+import { motion } from "framer-motion";
 import Me from "../assets/Rahul.JPG?url";
 import swift from "../assets/skills/swift.png";
 import java from "../assets/skills/java.png";
@@ -19,6 +20,7 @@ import mysql from "../assets/skills/mysql.png";
 import github from "../assets/contact/github.png";
 import gmail from "../assets/contact/gmail.png";
 import linkedin from "../assets/contact/linkedin.png";
+import checken from "../assets/checken.png";
 
 const Home = () => {
     return (
@@ -32,10 +34,11 @@ const Home = () => {
 export default Home;
 
 const Intro = () => {
+    const [showChicken, setShowChicken] = useState(true);
     return (
         <div className="bg-gray-700 w-full h-screen flex flex-col md:flex-row md:gap-8 gap-8 p-10 justify-center items-center">
             <img className="size-50 sm:size-50 md:size-75 lg:size-100 shadow-xl rounded-full" alt="image" src={Me} />
-            <div className="text-4xl font-bold text-center">
+            <div className="text-4xl text-white font-bold text-center">
                 <h1 className="text-4xl sm:text-4xl md:text-6xl font-black text-center">Hello, I'm Rahul</h1>
                 <p className="text-2xl sm:text-2xl md:text-4xl">
                     A Software Engineer
@@ -45,6 +48,16 @@ const Intro = () => {
                     And yeah I do like to dabble in web development too ;).
                 </p>
             </div>
+            {showChicken && (
+                <motion.img 
+                    src={checken}
+                    alt="Chicken on a rocker"
+                    className="absolute top-30 left-[-150px] w-40"
+                    animate={{ x: "100vw" }}
+                    transition={{ duration: 10, ease: "linear" }}
+                    onAnimationComplete={() => setShowChicken(false)}
+                />
+            )}
         </div>
     );
 }

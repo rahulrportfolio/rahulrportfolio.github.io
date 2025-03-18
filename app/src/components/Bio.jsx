@@ -4,13 +4,15 @@ import { Contact } from "./Home";
 
 const Bio = () => {
     return (
-        <div className="bg-white h-lvh justify-center content-center text-black">
-            <About />
-            <Education />
-            <Contact />
+        <div className="bg-white h-full w-full flex items-center justify-center text-black">
+            <div className="max-w-7xl w-full">
+                <About />
+                <Education />
+                <Contact />
+            </div>
         </div>
     );
-}
+};
 
 export default Bio;
 
@@ -21,8 +23,8 @@ const About = () => {
                 <h1 class="text-4xl sm:text-4xl md:text-6xl font-bold text-gray-800 underline decoration-wavy decoration-cyan-500 pb-5">About Me</h1>
                 <p class="text-gray-600 mb-4">
                     Hey there! I'm a <span class="font-semibold">mobile developer</span> passionate about building apps that are
-                    <span class="font-semibold">useful, efficient, and easy to use</span>. I work with
-                    <span class="text-blue-500">Android (Kotlin, Jetpack Compose, MVVM)</span> and
+                    <span class="font-semibold"> useful, efficient, and easy to use</span>. I work with
+                    <span class="text-blue-500"> Android (Kotlin, Jetpack Compose, MVVM)</span> and
                     <span class="text-blue-500"> iOS (SwiftUI, UIKit, iOS SDK)</span>. I also have experience with
                     <span class="text-blue-500"> RESTful APIs, FastAPI, and Docker</span>.
                 </p>

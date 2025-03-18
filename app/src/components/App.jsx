@@ -1,5 +1,5 @@
 import "../index.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import NavBar from "./NavBar";
 import Home from "./Home";
 import Project from "./Project";
@@ -9,7 +9,7 @@ import Footer from "./Footer";
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -18,7 +18,7 @@ const App = () => {
           <Route path="Experience" element={<Experience />} />
         </Routes>
       <Footer />
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 

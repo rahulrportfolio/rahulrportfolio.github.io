@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  font-family: Myfont, system-ui, Avenir, Helventica, Arial, sans-serif;
+  font-family: SwiftVsKotlin, system-ui, Avenir, Helventica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
+  color-scheme: dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #262626;
 
@@ -15,14 +15,29 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-@font-face {
-  font-family: "Myfont";
-  src: url('./Myfont-Regular.ttf') format("truetype");
+/* Hide scrollbar for Webkit-based browsers (Chrome, Safari, etc.) */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
 
-@media (prefers-color-scheme: light) {
+/* 
+Hide scrollbar for Firefox
+Internet Explorer and Edge
+Firefox
+*/
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none; 
+}
+
+@font-face {
+  font-family: "SwiftVsKotlin";
+  src: url('./SwiftVsKotlin.ttf') format("truetype");
+}
+
+@media (prefers-color-scheme: dark) {
   :root {
-    color: #23272c;
+    color: #e9f3ff;
     background-color: #ffffff;
   }
   a:hover {
