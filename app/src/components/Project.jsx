@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useRef } from "react";
 import data from "../assets/projects/netflixdb/data.png";
 import er from "../assets/projects/netflixdb/ER.png";
 import terminal from "../assets/projects/netflixdb/terminal.png";
@@ -15,10 +15,67 @@ import chemImg7 from "../assets/projects/chemicalLearn/chemImg7.png";
 import chemImg8 from "../assets/projects/chemicalLearn/chemImg8.png";
 
 const Project = () => {
+    const projectRefs = useRef({});
+
+    const handleProjectClick = (title) => {
+        if (projectRefs.current[title]) {
+            projectRefs.current[title].scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    };
+
     return (
+
         <div className="bg-gray-300 min-h-screen flex flex-col items-center justify-center">
-            <ProjectsCard />
-            <ProjectTemplateOneImg image={cat} title="Save The Cookie Monster">
+            <ProjectsCard onProjectClick={handleProjectClick} />
+
+            <ProjectTemplateNImg images={[
+                chemImg1,
+                chemImg2,
+                chemImg3,
+                chemImg4,
+                chemImg5,
+                chemImg6,
+                chemImg7,
+                chemImg8
+            ]}
+                title="ChemicalLearn"
+                ref={(el) => (projectRefs.current["ChemicalLearn"] = el)}
+                bgColor="bg-purple-400"
+                git=<a href="https://github.com/CodeWithTejpratab/ChemicaLearn"><b className=" text-blue-600 hover:text-amber-400">Github</b></a>
+            >
+                <div className="text-white space-y-4">
+                    <p>
+                        A fun and interactive way to test your chemistry knowledge! This iOS app offers quizzes,
+                        trivia, and challenges designed for students, teachers, and enthusiasts.
+                    </p>
+
+                    <h4 className="font-semibold underline">Features</h4>
+
+                    <ul className="list-disc list-inside">
+                        <li>🧪 Multiple-choice quizzes on various chemistry topics.</li>
+                        <li>🎨 Mockups designed in Figma and Canva.</li>
+                        <li>🔄 Integration of UIKit & SwiftUI for a seamless user experience.</li>
+                        <li>📱 Designed an intuitive and user-friendly interface.</li>
+                        <li>🌐 Backend powered by a GraphQL API (currently under development).</li>
+                    </ul>
+
+                    <h4 className="font-semibold underline">Technologies Used</h4>
+
+                    <ul className="list-disc list-inside">
+                        <li>UIKit: For initial app development.</li>
+                        <li>SwiftUI: Added to enhance the interface with modern design patterns..</li>
+                        <li>GraphQL: To enable efficient and flexible API queries.</li>
+                        <li>Figma & Canva: For creating app mockups and visual designs.</li>
+                    </ul>
+                </div>
+
+            </ProjectTemplateNImg>
+
+            <ProjectTemplateOneImg
+                ref={(el) => (projectRefs.current["Save The Cookie Monster"] = el)} image={cat}
+                title="Save The Cookie Monster"
+                git=<a href="https://github.com/CodeWithTejpratab/games"><b className=" text-blue-600 hover:text-amber-400">Github</b></a>
+            >
                 <p>
                     A captivating <strong className="text-3xl font-extrabold">React app</strong> centered around solving word puzzles to rescue our adorable feline friend,
                     the Cookie Monster! Inspired by a real cat. Whiskey is a wanted cat all around Cat City for stealing cookies.
@@ -39,7 +96,7 @@ const Project = () => {
 }
 export default Project;
 
-const ProjectsCard = () => {
+const ProjectsCard = ({ onProjectClick }) => {
     const projects = [
         {
             title: "ChemicalLearn",
@@ -69,11 +126,12 @@ const ProjectsCard = () => {
                 {projects.map((project, index) => (
                     <div
                         key={index}
+                        onClick={() => onProjectClick(project.title)}
                         className="
                         w-66
                         md:w-80
                         min-h-[350px] 
-                        hover:scale-110 
+                        hover:scale-106 
                         duration-200
                         ease-in-out
                         snap-center 
@@ -108,18 +166,19 @@ const ProjectsCard = () => {
     );
 }
 
-const ProjectTemplateOneImg = ({ image, title, children, bgColor = "bg-red-400" }) => {
+const ProjectTemplateOneImg = ({ image, title, children, bgColor = "bg-red-400", ref, git }) => {
     return (
         <div className={`w-full min-h-screen flex items-center justify-center ${bgColor}`}>
-            <div className={`${bgColor} max-w-7xl w-full min-h-screen flex flex-col md:flex-row items-center justify-center gap-6 p-6 pb-10`}>
+            <div ref={ref} className={`${bgColor} max-w-7xl w-full min-h-screen flex flex-col md:flex-row items-center justify-center gap-6 p-6 pb-10`}>
                 <img
                     src={image}
                     alt={title}
                     className="object-contain max-w-full h-auto md:max-w-md rounded-2xl"
                 />
                 <div className="flex flex-col text-white font-bold text-center md:text-left w-full">
-                    <h1 className="text-3xl md:text-4xl font-extrabold underline decoration-double decoration-3 decoration-black">
-                        {title}
+                    <h1 className="text-3xl md:text-4xl font-extrabold">
+                        <span className="underline decoration-double decoration-3 decoration-black">{title}</span>
+                        <span className="ml-4">{git}</span>
                     </h1>
                     <div className="mt-2 text-lg md:text-2xl">{children}</div>
                 </div>
@@ -127,3 +186,36 @@ const ProjectTemplateOneImg = ({ image, title, children, bgColor = "bg-red-400" 
         </div>
     );
 };
+
+
+const ProjectTemplateNImg = ({ images, title, children, bgColor = "bg-red-400", ref, git }) => {
+    return (
+        <div className={`w-full min-h-screen flex items-center justify-center ${bgColor} p-6`}>
+            <div
+                ref={ref}
+                className="max-w-7xl w-full min-h-screen flex flex-col md:flex-row items-center justify-between gap-10"
+            >
+                <div className="w-full md:w-1/2 flex flex-col items-start justify-center gap-6">
+                    <h1 className="text-4xl md:text-5xl font-bold text-white">
+                        <span className="underline decoration-cyan-400 decoration-wavy">{title}</span>
+                        <span className="ml-4">{git}</span>
+                    </h1>
+                    <div className="text-white text-lg md:text-xl space-y-4">{children}</div>
+                </div>
+
+                <div className="w-full md:w-[40%] grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    {images.map((img, index) => (
+                        <img
+                            key={index}
+                            src={img}
+                            alt={`Image ${index + 1}`}
+                            className={`object-cover rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 ${index % 3 === 0 ? "h-40 md:h-56" : "h-32 md:h-48"
+                                }`}
+                        />
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
+};
+
