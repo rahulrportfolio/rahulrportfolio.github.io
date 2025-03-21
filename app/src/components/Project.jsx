@@ -5,6 +5,7 @@ import terminal from "../assets/projects/netflixdb/terminal.png";
 import cat from "../assets/projects/cookieMonster/cat.png";
 import matrixApp1 from "../assets/projects/matrixCalc/matrixApp1.png";
 import matrixApp2 from "../assets/projects/matrixCalc/matrixApp2.png";
+import matrixAppDemo from "../assets/projects/matrixCalc/matrixAppDemo.mp4"
 import chemImg1 from "../assets/projects/chemicalLearn/chemImg1.png";
 import chemImg2 from "../assets/projects/chemicalLearn/chemImg2.png";
 import chemImg3 from "../assets/projects/chemicalLearn/chemImg3.png";
@@ -13,6 +14,10 @@ import chemImg5 from "../assets/projects/chemicalLearn/chemImg5.png";
 import chemImg6 from "../assets/projects/chemicalLearn/chemImg6.png";
 import chemImg7 from "../assets/projects/chemicalLearn/chemImg7.png";
 import chemImg8 from "../assets/projects/chemicalLearn/chemImg8.png";
+import sustainHome from "../assets/projects/sustainTrail/sustainHome.png";
+import sustainOnboarding from "../assets/projects/sustainTrail/sustainOnboarding.png";
+import sustainProfile from "../assets/projects/sustainTrail/sustainProfile.png";
+import sustainSignUp from "../assets/projects/sustainTrail/sustainSignUp.png";
 
 const Project = () => {
     const projectRefs = useRef({});
@@ -25,8 +30,42 @@ const Project = () => {
 
     return (
 
-        <div className="bg-gray-300 min-h-screen flex flex-col items-center justify-center">
+        <div className="bg bg-gray-300 min-h-screen flex flex-col items-center justify-center">
             <ProjectsCard onProjectClick={handleProjectClick} />
+
+            <ProjectTemplateLeftNImg images={[
+                sustainHome,
+                sustainOnboarding,
+                sustainSignUp,
+                sustainProfile
+            ]}
+                title="SustainTrail"
+                ref={(el) => (projectRefs.current["SustainTrail"] = el)}
+                git=<a href="https://gitlab.com/mc-capstone/SustenanceAndroid"><b className=" text-blue-600 hover:text-amber-400">Github</b></a>
+                bgColor="bg-emerald-400"
+            >
+                <div className="space-y-4">
+                    <p>
+                        SustainTrail will be an application that allows users across the U.S. to perform daily tasks that would reduce their carbon footprint. It will
+                        promote a healthier lifestyle through a gamification of sustainable activities. These activities would change the user’s score based on what
+                        they did; this score tells the user, and other users, how “sustainable” they are. The goal of SustainTrail is to minimize as much carbon footprint
+                        as possible through the means of individual volition.
+                    </p>
+
+                    <h4 className="font-semibold underline decoration-double">Technologies Used</h4>
+
+                    <ul className="list-disc list-inside">
+                        <li>Kotlin</li>
+                        <li>Jetpack Compose</li>
+                        <li>Python</li>
+                        <li>FastAPI</li>
+                        <li>Firebase</li>
+                        <li>Bitrise</li>
+                        <li>Docker</li>
+                        <li>PostgreSQL</li>
+                    </ul>
+                </div>
+            </ProjectTemplateLeftNImg>
 
             <ProjectTemplateNImg images={[
                 chemImg1,
@@ -91,6 +130,37 @@ const Project = () => {
                     </a>
                 </p>
             </ProjectTemplateOneImg>
+
+            <ProjectTemplateNImgWithVideo images={[
+                matrixApp1,
+                matrixApp2
+            ]}
+                video={matrixAppDemo}
+                title="Matrix Calculator"
+                git=<a href="https://github.com/CodeWithTejpratab/MatrixCalculator"><b className=" text-blue-600 hover:text-amber-400">Github</b></a>
+                ref={(el) => (projectRefs.current["Matrix Calculator"] = el)} image={cat}
+                bgColor="bg-pink-800"
+            >
+                <div className="space-y-4">
+                    <p>
+                        Led a group of 4 in a IOS app project. Created a <b className="underline">Gauss</b> and <b className="underline">Gauss Jordan</b> matrix calculator using <b className="underline">Swift</b> and <b className="underline">SwiftUI</b> for the frontend GUI,
+                        and <b className="underline">C++</b> for the backend. <b className="underline">Objective C</b> was used to bridge C++ and Swift. This app provides a simple way for users to interact with the Gauss Jordan
+                        and Gauss algorithm, allowing user to solve systems of linear equations. The Gauss Jordan method is commonly used in chemistry to equalize chemical reactions.
+                    </p>
+
+                    <h4 className="font-semibold underline decoration-double">Design Consideration:</h4>
+
+                    <ul className="list-disc list-inside">
+                        <li>What was the purpose of the app.</li>
+                        <li>What specific goals and objectives we wanted to achieve with the app.e</li>
+                        <li>Create ways to test the app under various conditions to identify and resolve performance issues.</li>
+                        <li>Design an intuitive and user-friendly interface</li>
+                        <li>Prioritize a seamless user experience to encourage engagement and retention.</li>
+                        <a href="https://github.com/CodeWithTejpratab/MatrixCalculator/blob/main/PreDesigns.png"><b className="text-3xl font-extrabold text-blue-600 hover:text-amber-400">Mockups</b></a>
+                    </ul>
+                </div>
+
+            </ProjectTemplateNImgWithVideo>
         </div>
     );
 }
@@ -98,6 +168,11 @@ export default Project;
 
 const ProjectsCard = ({ onProjectClick }) => {
     const projects = [
+        {
+            title: "SustainTrail",
+            image: sustainHome,
+            tech: ["Kotlin", "Jetpack Compose", "Pyhton", "FastAPI", "Bitrise", "Firebase", "PostgreSQL", "Docker"],
+        },
         {
             title: "ChemicalLearn",
             image: chemImg7,
@@ -111,7 +186,7 @@ const ProjectsCard = ({ onProjectClick }) => {
         {
             title: "Matrix Calculator",
             image: matrixApp1,
-            tech: ["Swift", "SwiftUI", "C++"],
+            tech: ["Swift", "SwiftUI", "C++", "Objective C"],
         },
         {
             title: "Netflix Database",
@@ -200,16 +275,16 @@ const ProjectTemplateNImg = ({ images, title, children, bgColor = "bg-red-400", 
                         <span className="underline decoration-cyan-400 decoration-wavy">{title}</span>
                         <span className="ml-4">{git}</span>
                     </h1>
-                    <div className="text-white text-lg md:text-xl space-y-4">{children}</div>
+                    <div className="text-white text-lg md:text-xl space-y-4 font-bold">{children}</div>
                 </div>
 
-                <div className="w-full md:w-[40%] grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div className="content-center items-center justify-center w-full md:w-[40%] grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-4">
                     {images.map((img, index) => (
                         <img
                             key={index}
                             src={img}
                             alt={`Image ${index + 1}`}
-                            className={`object-cover rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 ${index % 3 === 0 ? "h-40 md:h-56" : "h-32 md:h-48"
+                            className={`object-contain rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 ${index % 3 === 0 ? "h-40 md:h-56" : "h-32 md:h-48"
                                 }`}
                         />
                     ))}
@@ -219,3 +294,82 @@ const ProjectTemplateNImg = ({ images, title, children, bgColor = "bg-red-400", 
     );
 };
 
+const ProjectTemplateLeftNImg = ({ images, title, children, bgColor = "bg-red-400", ref, git }) => {
+    return (
+        <div className={`w-full min-h-screen flex items-center justify-center ${bgColor} p-6`}>
+            <div
+                ref={ref}
+                className={`${bgColor} max-w-7xl w-full min-h-screen flex flex-col md:flex-row items-center justify-between gap-10`}
+            >
+                <div className="content-center items-center justify-center w-full md:w-[40%] grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    {images.map((img, index) => (
+                        <img
+                            key={index}
+                            src={img}
+                            alt={`Image ${index + 1}`}
+                            className={`object-contain rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 ${index % 3 === 0 ? "h-50 md:h-64" : "h-40 md:h-54"
+                                }`}
+                        />
+                    ))}
+                </div>
+
+                <div className="w-full md:w-1/2 flex flex-col items-start justify-center gap-6">
+                    <h1 className="text-4xl md:text-5xl font-bold text-black">
+                        <span className="underline decoration-white decoration-dashed">{title}</span>
+                        <span className="ml-4">{git}</span>
+                    </h1>
+                    <div className="text-black text-lg md:text-xl space-y-4 font-bold">{children}</div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+const ProjectTemplateNImgWithVideo = ({ images, video, title, children, bgColor = "bg-red-400", ref, git }) => {
+    return (
+        <div className={`w-full min-h-screen flex items-center justify-center ${bgColor} p-6`}>
+            <div
+                ref={ref}
+                className={`${bgColor} max-w-7xl w-full min-h-screen flex flex-col md:flex-row items-center justify-between gap-10`}
+            >
+                {/* Left section containing images and video, fully centered */}
+                <div className="w-full md:w-[40%] flex flex-col items-center justify-center">
+                    {/* Images Grid - Centered */}
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-4 place-items-center">
+                        {images.map((img, index) => (
+                            <img
+                                key={index}
+                                src={img}
+                                alt={`Image ${index + 1}`}
+                                className="object-contain rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 h-40 md:h-56"
+                            />
+                        ))}
+                    </div>
+
+                    {video && (
+                        <div className="w-full flex justify-center mt-6">
+                            <video
+                                src={video}
+                                autoPlay
+                                loop
+                                muted
+                                className="w-full max-w-md rounded-lg shadow-lg"
+                            />
+                        </div>
+                    )}
+                </div>
+
+                {/* Right section for text content */}
+                <div className="w-full md:w-1/2 flex flex-col items-start justify-center gap-6">
+                    <h1 className="text-4xl md:text-5xl font-bold text-cyan-200 text-center md:text-left">
+                        <span className="underline decoration-cyan-700 decoration-dotted decoration-8">{title}</span>
+                        <span className="ml-4">{git}</span>
+                    </h1>
+                    <div className="text-cyan-200 text-lg md:text-xl space-y-4 font-bold text-center md:text-left">
+                        {children}
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
