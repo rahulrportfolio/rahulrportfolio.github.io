@@ -1,4 +1,4 @@
-import { React, useRef } from "react";
+import { React, useRef, useState } from "react";
 import data from "../assets/projects/netflixdb/data.png";
 import er from "../assets/projects/netflixdb/ER.png";
 import terminal from "../assets/projects/netflixdb/terminal.png";
@@ -29,7 +29,6 @@ const Project = () => {
     };
 
     return (
-
         <div className="bg bg-gray-300 min-h-screen flex flex-col items-center justify-center">
             <ProjectsCard onProjectClick={handleProjectClick} />
 
@@ -161,10 +160,35 @@ const Project = () => {
                 </div>
 
             </ProjectTemplateNImgWithVideo>
+
+            <ProjectTemplateImgRow
+                images={[er, terminal, data]}
+                title="Netflix Database"
+                git={<a href="https://github.com/CodeWithTejpratab/Netflix-Database"> <b className="text-blue-600 hover:text-amber-400 font-bold">Github</b></a>}
+                ref={(el) => (projectRefs.current["Netflix Database"] = el)}
+                bgColor="bg-teal-600"
+            >
+                <div className="space-y-2">
+                    <p>
+                        Led a proficient team of three in the development of a robust Netflix Database system utilizing <b className="underline">MySQL</b>,
+                        complemented by crafting an front-end terminal CLI interface using <b className="underline">Python</b>.
+                    </p>
+                    <h4 className="font-semibold underline decoration-double">Key Features:</h4>
+                    <ul className="list-disc list-inside">
+                        <li>User login system</li>
+                        <li>Subscription plan</li>
+                        <li>TV Show/Movie rating system</li>
+                    </ul>
+                    <a href="https://github.com/CodeWithTejpratab/Netflix-Database/blob/main/ER.png"> <b className="text-3xl font-extrabold text-blue-600 hover:text-amber-400">ER-Diagram</b></a>
+                </div>
+            </ProjectTemplateImgRow>;
         </div>
     );
 }
+
+
 export default Project;
+
 
 const ProjectsCard = ({ onProjectClick }) => {
     const projects = [
@@ -241,6 +265,7 @@ const ProjectsCard = ({ onProjectClick }) => {
     );
 }
 
+
 const ProjectTemplateOneImg = ({ image, title, children, bgColor = "bg-red-400", ref, git }) => {
     return (
         <div className={`w-full min-h-screen flex items-center justify-center ${bgColor}`}>
@@ -294,6 +319,7 @@ const ProjectTemplateNImg = ({ images, title, children, bgColor = "bg-red-400", 
     );
 };
 
+
 const ProjectTemplateLeftNImg = ({ images, title, children, bgColor = "bg-red-400", ref, git }) => {
     return (
         <div className={`w-full min-h-screen flex items-center justify-center ${bgColor} p-6`}>
@@ -325,6 +351,7 @@ const ProjectTemplateLeftNImg = ({ images, title, children, bgColor = "bg-red-40
     );
 };
 
+
 const ProjectTemplateNImgWithVideo = ({ images, video, title, children, bgColor = "bg-red-400", ref, git }) => {
     return (
         <div className={`w-full min-h-screen flex items-center justify-center ${bgColor} p-6`}>
@@ -332,9 +359,7 @@ const ProjectTemplateNImgWithVideo = ({ images, video, title, children, bgColor 
                 ref={ref}
                 className={`${bgColor} max-w-7xl w-full min-h-screen flex flex-col md:flex-row items-center justify-between gap-10`}
             >
-                {/* Left section containing images and video, fully centered */}
                 <div className="w-full md:w-[40%] flex flex-col items-center justify-center">
-                    {/* Images Grid - Centered */}
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-4 place-items-center">
                         {images.map((img, index) => (
                             <img
@@ -353,13 +378,13 @@ const ProjectTemplateNImgWithVideo = ({ images, video, title, children, bgColor 
                                 autoPlay
                                 loop
                                 muted
+                                controlsList="nodownload nofullscreen noremoteplayback"
                                 className="w-full max-w-md rounded-lg shadow-lg"
                             />
                         </div>
                     )}
                 </div>
 
-                {/* Right section for text content */}
                 <div className="w-full md:w-1/2 flex flex-col items-start justify-center gap-6">
                     <h1 className="text-4xl md:text-5xl font-bold text-cyan-200 text-center md:text-left">
                         <span className="underline decoration-cyan-700 decoration-dotted decoration-8">{title}</span>
@@ -370,6 +395,49 @@ const ProjectTemplateNImgWithVideo = ({ images, video, title, children, bgColor 
                     </div>
                 </div>
             </div>
+        </div>
+    );
+};
+
+
+const ProjectTemplateImgRow = ({ images, title, children, bgColor = "bg-red-400", ref, git }) => {
+    const [selectedImage, setSelectedImage] = useState(null);
+
+    return (
+        <div className={`w-full md:h-screen flex items-center justify-center ${bgColor}`}>
+            <div
+                ref={ref}
+                className={`max-w-7xl w-full md:h-screen flex flex-col md:flex-col items-center justify-center gap-8 p-6`}
+            >
+                <div className="w-full flex flex-wrap justify-center gap-4">
+                    {images.map((img, index) => (
+                        <img
+                            key={index}
+                            src={img}
+                            alt={`Image ${index + 1}`}
+                            className="object-cover rounded-lg shadow-lg transition-transform duration-300 w-40 md:w-66 hover:scale-105 cursor-pointer"
+                            onClick={() => setSelectedImage(img)}
+                        />
+                    ))}
+                </div>
+
+                <div className="w-full md:w-1/2  flex flex-col items-center content-center justify-center gap-4">
+                    <h1 className="text-4xl md:text-5xl font-bold text-black">
+                        <span className="underline decoration-amber-500 decoration-dotted decoration-9">{title}</span>
+                        <span className="ml-4">{git}</span>
+                    </h1>
+                    <div className="text-black text-lg md:text-xl space-y-4 font-bold">{children}</div>
+                </div>
+            </div>
+
+            {selectedImage && (
+                <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50" onClick={() => setSelectedImage(null)}>
+                    <div className="relative p-4 rounded-lg shadow-lg max-w-3xl w-full bg-white">
+                        <button className="absolute top-2 right-2 text-xl font-bold text-rose-800" onClick={() => setSelectedImage(null)}>×</button>
+                        <img src={selectedImage} alt="Selected" className="w-full h-auto rounded-lg" />
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
