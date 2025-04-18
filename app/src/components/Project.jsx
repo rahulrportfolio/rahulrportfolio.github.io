@@ -219,9 +219,34 @@ const ProjectsCard = ({ onProjectClick }) => {
         }
     ];
 
+    const scrollContainerRef = useRef(null);
+
+    const scrollLeft = () => {
+        scrollContainerRef.current.scrollBy({
+            left: -300,
+            behavior: "smooth",
+        });
+    };
+
+    const scrollRight = () => {
+        scrollContainerRef.current.scrollBy({
+            left: 300,
+            behavior: "smooth",
+        });
+    };
+
     return (
-        <div className="w-full max-w-7xl min-h-screen flex items-center justify-center">
-            <div className="w-11/12 overflow-x-auto flex gap-12 p-4 snap-x snap-mandatory scrollbar-hide scroll-smooth">
+        <div className="w-full max-w-7xl min-h-screen flex items-center justify-center relative">
+            <button
+                onClick={scrollLeft}
+                className="absolute left-0 text-black p-1 rounded-full hover:bg-purple-200"
+            >
+                &#8592;
+            </button>
+            <div
+                ref={scrollContainerRef}
+                className="w-11/12 overflow-x-auto flex gap-12 p-4 snap-x snap-mandatory scrollbar-hide scroll-smooth"
+            >
                 {projects.map((project, index) => (
                     <div
                         key={index}
@@ -261,9 +286,15 @@ const ProjectsCard = ({ onProjectClick }) => {
                     </div>
                 ))}
             </div>
+            <button
+                onClick={scrollRight}
+                className="absolute right-0 text-black p-1 rounded-full hover:bg-purple-200"
+            >
+                &#8594;
+            </button>
         </div>
     );
-}
+};
 
 
 const ProjectTemplateOneImg = ({ image, title, children, bgColor = "bg-red-400", ref, git }) => {
