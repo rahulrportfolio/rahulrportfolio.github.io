@@ -17,6 +17,7 @@ import chemImg8 from "../assets/projects/chemicalLearn/chemImg8.png";
 import sustainHome from "../assets/projects/sustainTrail/sustainHome.png";
 import sustainOnboarding from "../assets/projects/sustainTrail/sustainOnboarding.png";
 import sustainProfile from "../assets/projects/sustainTrail/sustainProfile.png";
+import susttainEvent from "../assets/projects/sustainTrail/sustainEvent.png";
 import sustainSignUp from "../assets/projects/sustainTrail/sustainSignUp.png";
 
 const Project = () => {
@@ -34,9 +35,9 @@ const Project = () => {
 
             <ProjectTemplateLeftNImg images={[
                 sustainHome,
-                sustainOnboarding,
                 sustainSignUp,
-                sustainProfile
+                sustainProfile,
+                susttainEvent
             ]}
                 title="SustainTrail"
                 ref={(el) => (projectRefs.current["SustainTrail"] = el)}

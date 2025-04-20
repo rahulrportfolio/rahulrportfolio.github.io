@@ -20,6 +20,7 @@ import mysql from "../assets/skills/mysql.png";
 import github from "../assets/contact/github.png";
 import gmail from "../assets/contact/gmail.png";
 import linkedin from "../assets/contact/linkedin.png";
+import cSharp from "../assets/skills/c-sharp.png";
 import checken from "../assets/checken.png";
 
 const Home = () => {
@@ -83,6 +84,7 @@ const Skills = () => {
                 <SkillItem image={react} text="ReactJS" />
                 <SkillItem image={node} text="NodeJS" />
                 <SkillItem image={htmlcss} text="HTML/CSS" />
+                <SkillItem image={cSharp} text="C#" />
             </div>
         </div>
     );
