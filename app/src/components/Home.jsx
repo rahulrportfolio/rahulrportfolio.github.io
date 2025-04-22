@@ -37,7 +37,8 @@ export default Home;
 const Intro = () => {
     const [showChicken, setShowChicken] = useState(true);
     return (
-        <div className="bg-gray-700 w-full h-screen flex flex-col md:flex-row md:gap-8 gap-8 p-10 justify-center items-center">
+        <div className={`bg-gray-700 w-full min-h-screen flex items-center justify-center`}>
+        <div className="max-w-7xl h-screen flex flex-col md:flex-row md:gap-8 gap-8 p-10 justify-center items-center">
             <img className="size-50 sm:size-50 md:size-75 lg:size-100 shadow-xl rounded-full" alt="image" src={Me} />
             <div className="text-4xl text-white font-bold text-center">
                 <h1 className="text-4xl sm:text-4xl md:text-6xl font-black text-center">Hello, I'm Rahul</h1>
@@ -59,6 +60,7 @@ const Intro = () => {
                     onAnimationComplete={() => setShowChicken(false)}
                 />
             )}
+        </div>
         </div>
     );
 }
