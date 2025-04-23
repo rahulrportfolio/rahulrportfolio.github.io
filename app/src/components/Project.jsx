@@ -332,7 +332,7 @@ const ProjectTemplateNImg = ({ images, title, children, bgColor = "bg-red-400", 
                         <span className="underline decoration-cyan-400 decoration-wavy">{title}</span>
                         <span className="ml-4">{git}</span>
                     </h1>
-                    <div className="text-white text-lg md:text-xl space-y-4 font-bold">{children}</div>
+                    <div className="text-white text-lg md:text-2xl space-y-4 font-bold">{children}</div>
                 </div>
 
                 <div className="content-center items-center justify-center w-full md:w-[40%] grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -376,7 +376,7 @@ const ProjectTemplateLeftNImg = ({ images, title, children, bgColor = "bg-red-40
                         <span className="underline decoration-white decoration-dashed">{title}</span>
                         <span className="ml-4">{git}</span>
                     </h1>
-                    <div className="text-black text-lg md:text-xl space-y-4 font-bold">{children}</div>
+                    <div className="text-black text-lg md:text-2xl space-y-4 font-bold">{children}</div>
                 </div>
             </div>
         </div>
@@ -422,7 +422,7 @@ const ProjectTemplateNImgWithVideo = ({ images, video, title, children, bgColor 
                         <span className="underline decoration-cyan-700 decoration-dotted decoration-8">{title}</span>
                         <span className="ml-4">{git}</span>
                     </h1>
-                    <div className="text-cyan-200 text-lg md:text-xl space-y-4 font-bold text-center md:text-left">
+                    <div className="text-white text-lg md:text-2xl space-y-4 font-bold text-center md:text-left">
                         {children}
                     </div>
                 </div>
@@ -458,7 +458,7 @@ const ProjectTemplateImgRow = ({ images, title, children, bgColor = "bg-red-400"
                         <span className="underline decoration-amber-500 decoration-dotted decoration-9">{title}</span>
                         <span className="ml-4">{git}</span>
                     </h1>
-                    <div className="text-black text-lg md:text-xl space-y-4 font-bold">{children}</div>
+                    <div className="text-black text-lg md:text-2xl space-y-4 font-bold">{children}</div>
                 </div>
             </div>
 
