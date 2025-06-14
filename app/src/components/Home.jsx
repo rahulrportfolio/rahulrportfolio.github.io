@@ -22,6 +22,8 @@ import gmail from "../assets/contact/gmail.png";
 import linkedin from "../assets/contact/linkedin.png";
 import cSharp from "../assets/skills/c-sharp.png";
 import checken from "../assets/checken.png";
+import bash from "../assets/skills/bash.png";
+import linux from "../assets/skills/linux.png";
 
 const Home = () => {
     return (
@@ -43,11 +45,11 @@ const Intro = () => {
             <div className="text-4xl text-white font-bold text-center">
                 <h1 className="text-4xl sm:text-4xl md:text-6xl font-black text-center">Hello, I'm Rahul</h1>
                 <p className="text-2xl sm:text-2xl md:text-4xl">
-                    A Software Engineer
+                    Just a guy who wanted to know how his computers worked 
                 </p>
                 <p className="text-2xl sm:text-2xl md:text-4xl">
-                    with experience in both native iOS and Android development.
-                    And yeah I do like to dabble in web development too ;).
+                   and ended up building native apps for both iOS and Android. 
+                   Somewhere along the way (college), I picked up an interest in operating systems (turns out lazy allocation isn't so lazy after all 😉).
                 </p>
             </div>
             {showChicken && (
@@ -70,6 +72,8 @@ const Skills = () => {
         <div className="bg-white w-full text-black text-center p-10">
             <h1 className="text-6xl font-bold underline decoration-wavy decoration-red-500 mb-10">Skills</h1>
             <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 gap-8 place-items-center">
+                <SkillItem image={linux} text="Linux" />
+                <SkillItem image={bash} text="BASH" />
                 <SkillItem image={kotlin} text="Kotlin" />
                 <SkillItem image={swift} text="Swift" />
                 <SkillItem image={python} text="Python" />
@@ -82,11 +86,11 @@ const Skills = () => {
                 <SkillItem image={firebase} text="Firebase" />
                 <SkillItem image={social} text="Git" />
                 <SkillItem image={figma} text="Figma" />
-                <SkillItem image={javascript} text="JavaScript" />
-                <SkillItem image={react} text="ReactJS" />
-                <SkillItem image={node} text="NodeJS" />
-                <SkillItem image={htmlcss} text="HTML/CSS" />
-                <SkillItem image={cSharp} text="C#" />
+                {/* <SkillItem image={javascript} text="JavaScript" /> */}
+                {/* <SkillItem image={react} text="ReactJS" /> */}
+                {/* <SkillItem image={node} text="NodeJS" /> */}
+                {/* <SkillItem image={htmlcss} text="HTML/CSS" /> */}
+                {/* <SkillItem image={cSharp} text="C#" /> */}
             </div>
         </div>
     );
