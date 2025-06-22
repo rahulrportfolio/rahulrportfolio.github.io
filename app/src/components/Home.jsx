@@ -40,29 +40,29 @@ const Intro = () => {
     const [showChicken, setShowChicken] = useState(true);
     return (
         <div className={`bg-gray-700 w-full min-h-screen flex items-center justify-center`}>
-        <div className="max-w-7xl h-screen flex flex-col md:flex-row md:gap-8 gap-8 p-10 justify-center items-center">
-            <img className="size-50 sm:size-50 md:size-75 lg:size-100 shadow-xl rounded-full" alt="image" src={Me} />
-            <div className="text-4xl text-white font-bold text-center">
-                <h1 className="text-4xl sm:text-4xl md:text-6xl font-black text-center">Hello, I'm Rahul</h1>
-                <p className="text-2xl sm:text-2xl md:text-4xl">
-                    Just a guy who wanted to know how his computers worked 
-                </p>
-                <p className="text-2xl sm:text-2xl md:text-4xl">
-                   and ended up building native apps for both iOS and Android. 
-                   Somewhere along the way (college), I picked up an interest in operating systems (turns out lazy allocation isn't so lazy after all 😉).
-                </p>
+            <div className="max-w-7xl h-screen flex flex-col md:flex-row md:gap-8 gap-8 p-10 justify-center items-center">
+                <img className="size-50 sm:size-50 md:size-75 lg:size-100 shadow-xl rounded-full" alt="image" src={Me} />
+                <div className="text-4xl text-white font-bold text-center">
+                    <h1 className="text-4xl sm:text-4xl md:text-6xl font-black text-center">Hello, I'm Rahul</h1>
+                    <p className="text-2xl sm:text-2xl md:text-4xl">
+                        Just a guy who wanted to know how his computers worked 
+                    </p>
+                    <p className="text-2xl sm:text-2xl md:text-4xl">
+                    and ended up building native apps for both iOS and Android. 
+                    Somewhere along the way (college), I picked up an interest in operating systems (turns out lazy allocation isn't so lazy after all 😉).
+                    </p>
+                </div>
+                {showChicken && (
+                    <motion.img 
+                        src={checken}
+                        alt="Chicken on a rocker"
+                        className="absolute top-30 left-[-150px] w-40"
+                        animate={{ x: "100vw" }}
+                        transition={{ duration: 10, ease: "linear" }}
+                        onAnimationComplete={() => setShowChicken(false)}
+                    />
+                )}
             </div>
-            {showChicken && (
-                <motion.img 
-                    src={checken}
-                    alt="Chicken on a rocker"
-                    className="absolute top-30 left-[-150px] w-40"
-                    animate={{ x: "100vw" }}
-                    transition={{ duration: 10, ease: "linear" }}
-                    onAnimationComplete={() => setShowChicken(false)}
-                />
-            )}
-        </div>
         </div>
     );
 }

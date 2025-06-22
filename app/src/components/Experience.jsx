@@ -38,12 +38,12 @@ const Experience = () => {
       duration: "Sep 2021 - Dec 2021",
       description: "Developed a promotional plan that increased student participation by 34%, improved social media visibility by 19%, and handled front desk and event coordination.",
       achievements: null,
-      image: "https://micefa.org/wp-content/uploads/2008/07/MUStacked_Green_cmyk-768x244.jpg"
+      image: "https://pbs.twimg.com/media/GVhgjs5WUAA52GL?format=jpg&name=large"
     }
   ];
 
     return (
-        <div className="justify-center pt-20">
+        <div className="max-w-7xl justify-center pt-20">
             <TimelineComponent experiences={experiences} />
         </div>
     );

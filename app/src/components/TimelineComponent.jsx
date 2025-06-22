@@ -8,16 +8,16 @@ const TimelineComponent = ({ experiences }) => {
         setExpandedId(expandedId === id ? null : id);
     };
 
-    const handlePrint = () => {
-        window.print();
-    };
+    // const handlePrint = () => {
+    //     window.print();
+    // };
 
     return (
         <div className={"min-h-screen bg-white text-gray-800"}>
             <div className="container mx-auto px-4 py-8">
                 <div className="flex justify-between items-center mb-8">
-                    <h1 className="text-3xl font-bold">Professional Experience</h1>
-                    <div className="flex gap-4">
+                    <h1 className="text-3xl font-bold underline decoration-dotted decoration-blue-800">Professional Experience</h1>
+                    {/* <div className="flex gap-4">
                         <button
                             onClick={handlePrint}
                             className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
@@ -25,7 +25,7 @@ const TimelineComponent = ({ experiences }) => {
                         >
                             <FaPrint />
                         </button>
-                    </div>
+                    </div> */}
                 </div>
 
                 <div className="relative">
@@ -34,7 +34,7 @@ const TimelineComponent = ({ experiences }) => {
                             <div key={exp.id} className="flex w-full items-start mb-8">
                                 {/* Timeline marker and line */}
                                 <div className="flex flex-col items-center mr-6">
-                                    <div className="w-8 h-8 flex items-center justify-center rounded-full bg-blue-500 shadow-lg">
+                                    <div className="w-8 h-8 flex items-center justify-center rounded-full bg-blue-600 shadow-lg">
                                         <FaBriefcase className="text-white" />
                                     </div>
                                     {/* Only show line below if not last item */}
@@ -61,9 +61,9 @@ const TimelineComponent = ({ experiences }) => {
                                     >
                                         <div className="flex justify-between items-start">
                                             <div>
-                                                <h3 className="text-2xl font-bold">{exp.title}</h3>
-                                                <p className="text-lg text-gray-800 dark:text-gray-700">{exp.company}</p>
-                                                <p className="text-base text-gray-800 dark:text-gray-700">{exp.duration}</p>
+                                                <h3 className="lg:text-4xl md:text-4xl sm:text-lg font-extrabold">{exp.title}</h3>
+                                                <p className="lg:text-3xl md:text-3xl sm:text-lg text-gray-800 dark:text-gray-700">{exp.company}</p>
+                                                <p className="text-lg text-gray-800 dark:text-gray-700">{exp.duration}</p>
                                             </div>
                                             <span className="ml-2 mt-1">
                                                 {expandedId === exp.id ? <FaChevronUp /> : <FaChevronDown />}
@@ -80,14 +80,14 @@ const TimelineComponent = ({ experiences }) => {
                                                         e.target.src = "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d";
                                                     }}
                                                 />
-                                                <p className="text-lg text-gray-800 dark:text-gray-700">{exp.description}</p>
+                                                <p className="lg:text-3xl md:text-3xl sm:text-lg text-gray-800 dark:text-gray-700">{exp.description}</p>
                                                 <div>
                                                     {Array.isArray(exp.achievements) && exp.achievements.length > 0 && (
                                                         <>
                                                             <h4 className="font-semibold mb-2">Key Achievements:</h4>
                                                             <ul className="list-disc list-inside space-y-1">
                                                                 {exp.achievements.map((achievement, i) => (
-                                                                    <li key={i} className="text-lg text-gray-800 dark:text-gray-700">
+                                                                    <li key={i} className="lg:text-3xl md:text-3xl sm:text-lg text-gray-800 dark:text-gray-700">
                                                                         {achievement}
                                                                     </li>
                                                                 ))}
