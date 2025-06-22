@@ -43,7 +43,7 @@ const Experience = () => {
   ];
 
     return (
-        <div className="max-w-7xl justify-center pt-20">
+        <div className="max-w-7xl mx-auto justify-center pt-20">
             <TimelineComponent experiences={experiences} />
         </div>
     );
